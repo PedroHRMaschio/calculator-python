@@ -22,7 +22,8 @@ class CalculatorApp:
             ("4", 2, 0), ("5", 2, 1), ("6", 2, 2), ("*", 2, 3),
             ("1", 3, 0), ("2", 3, 1), ("3", 3, 2), ("-", 3, 3),
             ("0", 4, 0), (".", 4, 1), ("=", 4, 2), ("+", 4, 3),
-            ("Clear", 5, 0, 2), ("History", 5, 2, 2)
+            ("Clear", 5, 0, 2), ("History", 5, 2, 2),
+            ("√", 6, 0), ("x²", 6, 1)
         ]
 
         for (text, row, col, *extra) in buttons:
@@ -33,6 +34,10 @@ class CalculatorApp:
     def on_button_click(self, text):
         if text == "=":
             self.calculate()
+        elif text == "√":
+            self.calculate_sqrt()
+        elif text == "x²":
+            self.calculate_power()
         elif text == "Clear":
             self.display.delete(0, tk.END)
         elif text == "History":
@@ -66,8 +71,25 @@ class CalculatorApp:
         except Exception as e:
             messagebox.showerror("Error", f"Invalid Expression: {str(e)}")
 
+    def calculate_sqrt(self):
+        try:
+            num = float(self.display.get())
+            result = self.calc.sqrt(num)
+            self.display.delete(0, tk.END)
+            self.display.insert(tk.END, result)
+        except Exception as e:
+            messagebox.showerror("Error", str(e))
+
+    def calculate_power(self):
+        try:
+            num = float(self.display.get())
+            result = self.calc.power(num, 2)
+            self.display.delete(0, tk.END)
+            self.display.insert(tk.END, result)
+        except Exception as e:
+            messagebox.showerror("Error", str(e))
+
     def show_history(self):
-        """Shows operation history."""
         history_window = tk.Toplevel(self.root)
         history_window.title("Calculation History")
 
