@@ -12,12 +12,12 @@ A simple Python project that implements basic mathematical operations like addit
 
 ## Installation
 
-To install the project, clone this repository:
+To install the project run the following commands:
 
 ```bash
 git clone https://github.com/PedroHRMaschio/calculator-python.git
 
-cd calculator-project
+cd calculator-python
 
 poetry install
 
@@ -25,7 +25,7 @@ poetry run ./main.py
 ```
 
 ## Running Tests
-After the project installation just run the following command line
+After the project installation just run the following command line:
 
 ```bash
 poetry run pytest
