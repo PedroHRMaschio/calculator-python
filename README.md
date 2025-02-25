@@ -22,3 +22,11 @@ cd calculator-project
 poetry install
 
 poetry run ./main.py
+```
+
+## Running Tests
+After the project installation just run the following command line
+
+```bash
+poetry run pytest
+```
