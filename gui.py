@@ -9,11 +9,11 @@ class CalculatorApp:
         self.root.title("Calculator")
         self.calc = Calculator()
 
-        # Entrada de texto para o display
+        # Text entry on display
         self.display = tk.Entry(root, width=20, font=("Arial", 24), borderwidth=2, relief="solid", justify="right")
         self.display.grid(row=0, column=0, columnspan=4)
 
-        # Botões
+        # Buttons
         self.create_buttons()
 
     def create_buttons(self):
@@ -33,7 +33,7 @@ class CalculatorApp:
     def on_button_click(self, text):
         if text == "=":
             try:
-                result = eval(self.display.get())  # Avaliar a expressão
+                result = eval(self.display.get())
                 self.display.delete(0, tk.END)
                 self.display.insert(tk.END, result)
             except Exception as e:

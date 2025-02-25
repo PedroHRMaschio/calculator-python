@@ -1,19 +1,32 @@
 
 class Calculator:
-    @staticmethod
-    def add(a, b):
-        return a + b
 
-    @staticmethod
-    def subtract(a, b):
-        return a - b
+    def __init__(self):
+        self.history = []
 
-    @staticmethod
-    def multiply(a, b):
-        return a * b
+    def _add_to_history(self, operation, result):
+        self.history.append(f"{operation} = {result}")
 
-    @staticmethod
-    def divide(a, b):
+    def get_history(self):
+        return self.history
+
+    def add(self, a, b):
+        result = a + b
+        self._add_to_history(f"{a} + {b}", result)
+        return result
+
+    def subtract(self, a, b):
+        result = a - b
+        self._add_to_history(f"{a} - {b}", result)
+
+    def multiply(self, a, b):
+        result = a * b
+        self._add_to_history(f"{a} * {b}", result)
+        return result
+
+    def divide(self, a, b):
         if b == 0:
             raise ZeroDivisionError("Cannot divide by zero.")
-        return a / b
+        result = a / b
+        self._add_to_history(f"{a} / {b}", result)
+        return result
