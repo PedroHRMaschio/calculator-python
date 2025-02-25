@@ -18,6 +18,7 @@ class Calculator:
     def subtract(self, a, b):
         result = a - b
         self._add_to_history(f"{a} - {b}", result)
+        return result
 
     def multiply(self, a, b):
         result = a * b
